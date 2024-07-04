@@ -1,6 +1,5 @@
-use std::path::PathBuf;
+use create_dirs::create_directories;
 
-use create_dirs::{create_data_dir, create_domain_dir, create_presentation_dir};
 mod create_dirs;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -16,12 +15,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         return Err(Box::new(std::io::Error::new(std::io::ErrorKind::NotFound, "Current directory is not root of the Flutter Project")));
     }
 
-    curr_dir.push("feature");
-    curr_dir.push(PathBuf::from(feature_name));
+    let _ = create_directories(&mut curr_dir, &feature_name)?;
 
-    create_data_dir(&mut curr_dir)?;
-    create_domain_dir(&mut curr_dir)?;
-    create_presentation_dir(&mut curr_dir)?;
-
-    return Ok(());
+    Ok(())
 }
