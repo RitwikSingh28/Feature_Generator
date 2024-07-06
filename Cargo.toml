@@ -2,7 +2,7 @@
 name = "feature_generator"
 author = "Ritwik Singh itsritwik26@gmail.com"
 description = "A tool to create a Clean Architecture folder structure for a Flutter feature"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 
 [dependencies]

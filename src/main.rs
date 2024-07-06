@@ -18,6 +18,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             .help("The name of the feature to be created")
         )
         .arg(
+            Arg::new("feature_base_dir_name")
+            .short('d')
+            .long("feature-dir")
+            .value_name("FEATURE_DIR_NAME")
+            .required(false)
+            .help("The name of the base directory to contain all feature directories (default: 'features'). This allows you to specify a custom directory name instead of using the default 'features' directory.")
+        )
+        .arg(
             Arg::new("base_dir")
             .short('b')
             .long("base")
@@ -41,6 +49,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         return Err(Box::new(std::io::Error::new(
             std::io::ErrorKind::NotFound, "Current directory is not root of the Flutter Project")
         ));
+    }
+
+    if let Some(feat_dir) = matches.get_one::<String>("feature_base_dir_name") {
+        curr_dir.push(feat_dir);
+    } else {
+        curr_dir.push("features");
     }
 
     println!("Creating directories for feature: {}", feature_name);

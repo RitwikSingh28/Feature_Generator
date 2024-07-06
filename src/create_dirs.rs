@@ -1,7 +1,6 @@
 use std::path::PathBuf;
 
 pub fn create_directories(base: &mut PathBuf, feature_name: &str) -> Result<(), std::io::Error> {
-    base.push("feature");
     base.push(PathBuf::from(feature_name));
 
     create_data_dir(base)?;
