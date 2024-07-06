@@ -1,6 +1,6 @@
-# FeatureFolderizer
+# FeatureGenerator
 
-FeatureFolderizer is a command-line tool designed to create a Clean Architecture folder structure for a specific feature in a Flutter project.
+FeatureGenerator is a command-line tool designed to create a Clean Architecture folder structure for a specific feature in a Flutter project.
 
 ## Features
 
