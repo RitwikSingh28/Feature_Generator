@@ -38,9 +38,6 @@ Navigate to the root of your Flutter project and run the binary with the appropr
 # Specifying a custom feature directory name
 ./featurefolderizer --feature authentication --feature-dir custom_features
 
-# Enabling verbose output
-./featurefolderizer --feature authentication --verbose
-
 ```
 
 ## Important
